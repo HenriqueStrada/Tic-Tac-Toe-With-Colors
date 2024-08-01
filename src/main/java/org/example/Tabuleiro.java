@@ -51,17 +51,19 @@ public class Tabuleiro {
             String jogada = sc.next();
             int casa = Integer.parseInt(jogada);
             if (casa < 1 || casa > 9) {
-                System.out.println("Casa inválida. Tente novamente.");
+                System.out.print("\nCasa inválida. Escolha um número entre 1 a 9.");
+                System.out.println();
                 return false;
             }
             if (tabuleiro.get(casa - 1).equals("X") || tabuleiro.get(casa - 1).equals("O")) {
-                System.out.println("Você não pode escolher uma casa já escolhida!");
+                System.out.println("\nVocê não pode escolher uma casa já escolhida!");
                 return false;
             }
             tabuleiro.set(casa - 1, jogador);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println("Entrada inválida. Tente novamente.");
+            System.out.print("\nEntrada inválida. Tente novamente.");
+            System.out.println();
             return false;
         }
     }

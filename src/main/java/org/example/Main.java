@@ -18,8 +18,6 @@ public class Main {
                 boolean jogadaValida = fazerJogada(tabuleiro, jogador, sc);
                 if (jogadaValida) {
                     entradaInvalida = false;
-                } else {
-                    System.out.println("Jogada inválida. Tente novamente.");
                 }
             }
             if (Tabuleiro.verificarVencedor(tabuleiro)) {
