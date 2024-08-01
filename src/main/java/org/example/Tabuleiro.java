@@ -5,6 +5,23 @@ import java.util.Scanner;
 public class Tabuleiro {
     protected static void mostrarTabuleiro(List<String> tabuleiro){
         //Tabuleiro, Verificando cada entrada para ver se for X ou O. Se for um ou outro, ira imprimir ele de uma cor especifica (34m = vermelho, 31m = azul)
+        for(int i = 0; i < 9; i++){
+            if(i == 2 || i == 5){
+                System.out.println("  " + (tabuleiro.get(i).equals("X") ? "\u001B[34m" + tabuleiro.get(i) + "\u001B[0m" :
+                        tabuleiro.get(i).equals("O") ? "\u001B[31m" + tabuleiro.get(i) + "\u001B[0m" : tabuleiro.get(i)) + "  ");
+                System.out.println("-----|-----|-----");
+            }else if (i == 8){
+                System.out.print("  " + (tabuleiro.get(i).equals("X") ? "\u001B[34m" + tabuleiro.get(i) + "\u001B[0m" :
+                        tabuleiro.get(i).equals("O") ? "\u001B[31m" + tabuleiro.get(i) + "\u001B[0m" : tabuleiro.get(i)) + "  ");
+            }else{
+                System.out.print("  " + (tabuleiro.get(i).equals("X") ? "\u001B[34m" + tabuleiro.get(i) + "\u001B[0m" :
+                        tabuleiro.get(i).equals("O") ? "\u001B[31m" + tabuleiro.get(i) + "\u001B[0m" : tabuleiro.get(i)) + "  |");
+            }
+        }
+    }
+    /*
+    Código passado para gerar tabuleiro
+    protected static void mostrarTabuleiro(List<String> tabuleiro){
         System.out.println("[ " + (tabuleiro.get(0).equals("X") ? "\u001B[34m" + tabuleiro.get(0) + "\u001B[0m" :
                 tabuleiro.get(0).equals("O") ? "\u001B[31m" + tabuleiro.get(0) + "\u001B[0m" : tabuleiro.get(0)) + " ] [ " + (tabuleiro.get(1).equals("X") ?
                 "\u001B[34m" + tabuleiro.get(1) + "\u001B[0m" : tabuleiro.get(1).equals("O") ?
@@ -23,11 +40,14 @@ public class Tabuleiro {
                 "\u001B[34m" + tabuleiro.get(8) + "\u001B[0m" : tabuleiro.get(8).equals("O") ?
                 "\u001B[31m" + tabuleiro.get(8) + "\u001B[0m" : tabuleiro.get(8)) + " ]");
     }
+    */
     protected static boolean fazerJogada(List<String> tabuleiro, String jogador, Scanner sc) {
         System.out.println("------------------------");
         System.out.println((jogador.equals("X")? "\u001B[34m" + "Qual casa quer jogar, " + jogador + "?" + "\u001B[0m" : jogador.equals("O")? "\u001B[31m" + "Qual casa quer jogar, " + jogador + "?" +"\u001B[0m" : jogador));
+        System.out.println();
         mostrarTabuleiro(tabuleiro);
         try {
+            System.out.print("\n\nDigite a casa: ");
             String jogada = sc.next();
             int casa = Integer.parseInt(jogada);
             if (casa < 1 || casa > 9) {

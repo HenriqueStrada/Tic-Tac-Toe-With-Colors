@@ -11,6 +11,7 @@ public class Main {
         String jogador = "X";
         List<String> tabuleiro = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Tic-Tac-Toe Game Board: ");
         while (!ganhador) {
             boolean entradaInvalida = true;
             while (entradaInvalida) {
